@@ -1,0 +1,723 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A6AE9D72DBFA7A7003654BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6AE9D12DBFA7A7003654BE /* Preview Assets.xcassets */; };
+		2A6AE9D82DBFA7A7003654BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6AE9D32DBFA7A7003654BE /* Assets.xcassets */; };
+		2A6AE9D92DBFA7A7003654BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9D42DBFA7A7003654BE /* ContentView.swift */; };
+		2A6AE9DA2DBFA7A7003654BE /* PhiloscopeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9D52DBFA7A7003654BE /* PhiloscopeApp.swift */; };
+		2A6AE9DD2DBFA7AA003654BE /* PhiloscopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9DB2DBFA7AA003654BE /* PhiloscopeTests.swift */; };
+		2A6AE9E12DBFA7AD003654BE /* PhiloscopeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9DE2DBFA7AD003654BE /* PhiloscopeUITests.swift */; };
+		2A6AE9E22DBFA7AD003654BE /* PhiloscopeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9DF2DBFA7AD003654BE /* PhiloscopeUITestsLaunchTests.swift */; };
+		2A6AE9E62DBFA811003654BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9E52DBFA811003654BE /* HomeView.swift */; };
+		2A6AE9E92DBFA87D003654BE /* SwiftfulRouting in Frameworks */ = {isa = PBXBuildFile; productRef = 2A6AE9E82DBFA87D003654BE /* SwiftfulRouting */; };
+		2A6AE9EC2DBFA996003654BE /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9EB2DBFA996003654BE /* MessageBubble.swift */; };
+		2A6AE9F02DBFAF4D003654BE /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9EF2DBFAF4D003654BE /* CGFloat+Extensions.swift */; };
+		2A6AE9F22DBFB06B003654BE /* PromptField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9F12DBFB06B003654BE /* PromptField.swift */; };
+		2A6AE9F92DBFB19D003654BE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6AE9F82DBFB19D003654BE /* Colors.xcassets */; };
+		2A6AE9FD2DBFB372003654BE /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9FC2DBFB372003654BE /* Symbols.swift */; };
+		2A6AE9FF2DBFB86F003654BE /* HistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AE9FE2DBFB86F003654BE /* HistoryListCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A6AE9A52DBABD92003654BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A6AE98C2DBABD91003654BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A6AE9932DBABD91003654BE;
+			remoteInfo = Philoscope;
+		};
+		2A6AE9AF2DBABD92003654BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A6AE98C2DBABD91003654BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A6AE9932DBABD91003654BE;
+			remoteInfo = Philoscope;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A6AE9942DBABD91003654BE /* Philoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Philoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6AE9A42DBABD92003654BE /* PhiloscopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhiloscopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6AE9AE2DBABD92003654BE /* PhiloscopeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhiloscopeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6AE9D12DBFA7A7003654BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2A6AE9D32DBFA7A7003654BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A6AE9D42DBFA7A7003654BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2A6AE9D52DBFA7A7003654BE /* PhiloscopeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhiloscopeApp.swift; sourceTree = "<group>"; };
+		2A6AE9DB2DBFA7AA003654BE /* PhiloscopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhiloscopeTests.swift; sourceTree = "<group>"; };
+		2A6AE9DE2DBFA7AD003654BE /* PhiloscopeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhiloscopeUITests.swift; sourceTree = "<group>"; };
+		2A6AE9DF2DBFA7AD003654BE /* PhiloscopeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhiloscopeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2A6AE9E52DBFA811003654BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2A6AE9EB2DBFA996003654BE /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		2A6AE9EF2DBFAF4D003654BE /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		2A6AE9F12DBFB06B003654BE /* PromptField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptField.swift; sourceTree = "<group>"; };
+		2A6AE9F82DBFB19D003654BE /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		2A6AE9FC2DBFB372003654BE /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		2A6AE9FE2DBFB86F003654BE /* HistoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A6AE9912DBABD91003654BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6AE9E92DBFA87D003654BE /* SwiftfulRouting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6AE9A12DBABD92003654BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6AE9AB2DBABD92003654BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A6AE98B2DBABD91003654BE = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9D62DBFA7A7003654BE /* Philoscope */,
+				2A6AE9DC2DBFA7AA003654BE /* PhiloscopeTests */,
+				2A6AE9E02DBFA7AD003654BE /* PhiloscopeUITests */,
+				2A6AE9E72DBFA87D003654BE /* Frameworks */,
+				2A6AE9952DBABD91003654BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A6AE9952DBABD91003654BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9942DBABD91003654BE /* Philoscope.app */,
+				2A6AE9A42DBABD92003654BE /* PhiloscopeTests.xctest */,
+				2A6AE9AE2DBABD92003654BE /* PhiloscopeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A6AE9D22DBFA7A7003654BE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9D12DBFA7A7003654BE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2A6AE9D62DBFA7A7003654BE /* Philoscope */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9F42DBFB163003654BE /* DesignSystem */,
+				2A6AE9ED2DBFAC85003654BE /* App */,
+				2A6AE9EE2DBFAF37003654BE /* Extensions */,
+				2A6AE9E32DBFA7B3003654BE /* Views */,
+				2A6AE9D22DBFA7A7003654BE /* Preview Content */,
+				2A6AE9D32DBFA7A7003654BE /* Assets.xcassets */,
+			);
+			path = Philoscope;
+			sourceTree = "<group>";
+		};
+		2A6AE9DC2DBFA7AA003654BE /* PhiloscopeTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9DB2DBFA7AA003654BE /* PhiloscopeTests.swift */,
+			);
+			path = PhiloscopeTests;
+			sourceTree = "<group>";
+		};
+		2A6AE9E02DBFA7AD003654BE /* PhiloscopeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9DE2DBFA7AD003654BE /* PhiloscopeUITests.swift */,
+				2A6AE9DF2DBFA7AD003654BE /* PhiloscopeUITestsLaunchTests.swift */,
+			);
+			path = PhiloscopeUITests;
+			sourceTree = "<group>";
+		};
+		2A6AE9E32DBFA7B3003654BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9E52DBFA811003654BE /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A6AE9E72DBFA87D003654BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A6AE9ED2DBFAC85003654BE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9D52DBFA7A7003654BE /* PhiloscopeApp.swift */,
+				2A6AE9D42DBFA7A7003654BE /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2A6AE9EE2DBFAF37003654BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9EF2DBFAF4D003654BE /* CGFloat+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2A6AE9F42DBFB163003654BE /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9F72DBFB18D003654BE /* Foundation */,
+				2A6AE9F62DBFB177003654BE /* Views */,
+				2A6AE9F52DBFB171003654BE /* Components */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		2A6AE9F52DBFB171003654BE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9EB2DBFA996003654BE /* MessageBubble.swift */,
+				2A6AE9F12DBFB06B003654BE /* PromptField.swift */,
+				2A6AE9FE2DBFB86F003654BE /* HistoryListCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2A6AE9F62DBFB177003654BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A6AE9F72DBFB18D003654BE /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				2A6AE9F82DBFB19D003654BE /* Colors.xcassets */,
+				2A6AE9FC2DBFB372003654BE /* Symbols.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A6AE9932DBABD91003654BE /* Philoscope */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6AE9B82DBABD92003654BE /* Build configuration list for PBXNativeTarget "Philoscope" */;
+			buildPhases = (
+				2A6AE9902DBABD91003654BE /* Sources */,
+				2A6AE9912DBABD91003654BE /* Frameworks */,
+				2A6AE9922DBABD91003654BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Philoscope;
+			packageProductDependencies = (
+				2A6AE9E82DBFA87D003654BE /* SwiftfulRouting */,
+			);
+			productName = Philoscope;
+			productReference = 2A6AE9942DBABD91003654BE /* Philoscope.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A6AE9A32DBABD92003654BE /* PhiloscopeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6AE9BB2DBABD92003654BE /* Build configuration list for PBXNativeTarget "PhiloscopeTests" */;
+			buildPhases = (
+				2A6AE9A02DBABD92003654BE /* Sources */,
+				2A6AE9A12DBABD92003654BE /* Frameworks */,
+				2A6AE9A22DBABD92003654BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A6AE9A62DBABD92003654BE /* PBXTargetDependency */,
+			);
+			name = PhiloscopeTests;
+			packageProductDependencies = (
+			);
+			productName = PhiloscopeTests;
+			productReference = 2A6AE9A42DBABD92003654BE /* PhiloscopeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2A6AE9AD2DBABD92003654BE /* PhiloscopeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6AE9BE2DBABD92003654BE /* Build configuration list for PBXNativeTarget "PhiloscopeUITests" */;
+			buildPhases = (
+				2A6AE9AA2DBABD92003654BE /* Sources */,
+				2A6AE9AB2DBABD92003654BE /* Frameworks */,
+				2A6AE9AC2DBABD92003654BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A6AE9B02DBABD92003654BE /* PBXTargetDependency */,
+			);
+			name = PhiloscopeUITests;
+			packageProductDependencies = (
+			);
+			productName = PhiloscopeUITests;
+			productReference = 2A6AE9AE2DBABD92003654BE /* PhiloscopeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A6AE98C2DBABD91003654BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					2A6AE9932DBABD91003654BE = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					2A6AE9A32DBABD92003654BE = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 2A6AE9932DBABD91003654BE;
+					};
+					2A6AE9AD2DBABD92003654BE = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 2A6AE9932DBABD91003654BE;
+					};
+				};
+			};
+			buildConfigurationList = 2A6AE98F2DBABD91003654BE /* Build configuration list for PBXProject "Philoscope" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2A6AE98B2DBABD91003654BE;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2A6AE9D02DBFA79E003654BE /* XCRemoteSwiftPackageReference "SwiftfulRouting" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2A6AE9952DBABD91003654BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A6AE9932DBABD91003654BE /* Philoscope */,
+				2A6AE9A32DBABD92003654BE /* PhiloscopeTests */,
+				2A6AE9AD2DBABD92003654BE /* PhiloscopeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A6AE9922DBABD91003654BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6AE9F92DBFB19D003654BE /* Colors.xcassets in Resources */,
+				2A6AE9D72DBFA7A7003654BE /* Preview Assets.xcassets in Resources */,
+				2A6AE9D82DBFA7A7003654BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6AE9A22DBABD92003654BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6AE9AC2DBABD92003654BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A6AE9902DBABD91003654BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6AE9E62DBFA811003654BE /* HomeView.swift in Sources */,
+				2A6AE9D92DBFA7A7003654BE /* ContentView.swift in Sources */,
+				2A6AE9F22DBFB06B003654BE /* PromptField.swift in Sources */,
+				2A6AE9DA2DBFA7A7003654BE /* PhiloscopeApp.swift in Sources */,
+				2A6AE9EC2DBFA996003654BE /* MessageBubble.swift in Sources */,
+				2A6AE9F02DBFAF4D003654BE /* CGFloat+Extensions.swift in Sources */,
+				2A6AE9FF2DBFB86F003654BE /* HistoryListCell.swift in Sources */,
+				2A6AE9FD2DBFB372003654BE /* Symbols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6AE9A02DBABD92003654BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6AE9DD2DBFA7AA003654BE /* PhiloscopeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6AE9AA2DBABD92003654BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6AE9E12DBFA7AD003654BE /* PhiloscopeUITests.swift in Sources */,
+				2A6AE9E22DBFA7AD003654BE /* PhiloscopeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A6AE9A62DBABD92003654BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A6AE9932DBABD91003654BE /* Philoscope */;
+			targetProxy = 2A6AE9A52DBABD92003654BE /* PBXContainerItemProxy */;
+		};
+		2A6AE9B02DBABD92003654BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A6AE9932DBABD91003654BE /* Philoscope */;
+			targetProxy = 2A6AE9AF2DBABD92003654BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2A6AE9B62DBABD92003654BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2A6AE9B72DBABD92003654BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A6AE9B92DBABD92003654BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Philoscope/Preview Content\"";
+				DEVELOPMENT_TEAM = Y4HWQ789F6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ataberkturan.Philoscope;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2A6AE9BA2DBABD92003654BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Philoscope/Preview Content\"";
+				DEVELOPMENT_TEAM = Y4HWQ789F6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ataberkturan.Philoscope;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2A6AE9BC2DBABD92003654BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4HWQ789F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ataberkturan.PhiloscopeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Philoscope.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Philoscope";
+			};
+			name = Debug;
+		};
+		2A6AE9BD2DBABD92003654BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4HWQ789F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ataberkturan.PhiloscopeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Philoscope.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Philoscope";
+			};
+			name = Release;
+		};
+		2A6AE9BF2DBABD92003654BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4HWQ789F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ataberkturan.PhiloscopeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Philoscope;
+			};
+			name = Debug;
+		};
+		2A6AE9C02DBABD92003654BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4HWQ789F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ataberkturan.PhiloscopeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Philoscope;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A6AE98F2DBABD91003654BE /* Build configuration list for PBXProject "Philoscope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A6AE9B62DBABD92003654BE /* Debug */,
+				2A6AE9B72DBABD92003654BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A6AE9B82DBABD92003654BE /* Build configuration list for PBXNativeTarget "Philoscope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A6AE9B92DBABD92003654BE /* Debug */,
+				2A6AE9BA2DBABD92003654BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A6AE9BB2DBABD92003654BE /* Build configuration list for PBXNativeTarget "PhiloscopeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A6AE9BC2DBABD92003654BE /* Debug */,
+				2A6AE9BD2DBABD92003654BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A6AE9BE2DBABD92003654BE /* Build configuration list for PBXNativeTarget "PhiloscopeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A6AE9BF2DBABD92003654BE /* Debug */,
+				2A6AE9C02DBABD92003654BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A6AE9D02DBFA79E003654BE /* XCRemoteSwiftPackageReference "SwiftfulRouting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulRouting";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A6AE9E82DBFA87D003654BE /* SwiftfulRouting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A6AE9D02DBFA79E003654BE /* XCRemoteSwiftPackageReference "SwiftfulRouting" */;
+			productName = SwiftfulRouting;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2A6AE98C2DBABD91003654BE /* Project object */;
+}
