@@ -15,7 +15,6 @@ class ChatMessage: Identifiable {
     var bubbleStyle: MessageBubble.Style
     var text: String
 
-    /// New: raw image bytes
     @Attribute
     var imageData: Data? = nil
 

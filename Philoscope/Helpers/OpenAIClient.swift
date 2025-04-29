@@ -27,7 +27,6 @@ struct OpenAIClient {
     
     // MARK: - Helper Methods
 
-    /// Sends any `Encodable` request to an endpoint and decodes the response into `Res`.
     func post<Req: Encodable, Res: Decodable>(
         _ ep: Endpoint, body: Req
     ) async throws -> Res {
@@ -44,7 +43,6 @@ struct OpenAIClient {
         // Execute
         let (data, response) = try await session.data(for: request)
         let status = (response as? HTTPURLResponse)?.statusCode ?? -1
-        debugPrint("📥 \(ep.rawValue) ⬅️ HTTP \(status)")
 
         guard status == 200 else {
             let body = String(decoding: data, as: UTF8.self)

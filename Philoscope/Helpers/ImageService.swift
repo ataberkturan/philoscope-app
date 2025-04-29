@@ -8,11 +8,15 @@
 import Foundation
 import UIKit
 
-/// Sends the refined prompt to **gpt-image-1** and decodes `UIImage`.
 struct ImageService {
+    
+    // MARK: - Properties
     private let client: OpenAIClient
+    
+    // MARK: - Initializers
     init(client: OpenAIClient) { self.client = client }
 
+    // MARK: - Helper Methods
     func generateImage(from prompt: String) async throws -> ImageResult {
         let req = ImageGenerationRequest(
             model: "gpt-image-1",
