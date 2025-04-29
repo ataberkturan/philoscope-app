@@ -10,25 +10,30 @@ import SwiftUI
 struct MessageBubble: View {
     
     // MARK: - Properties
-    let style: Style
-    let messageText: String
+    var message: ChatMessage
     
     // MARK: - Enums
-    enum Style {
+    enum Style: Codable, Equatable {
         case system
-        case response(image: Image)
+        case response(imageURL: String)
         case user
+        case loading
+        case error
     }
     
     // MARK: - Body
     var body: some View {
-        switch style {
+        switch message.bubbleStyle {
         case .system:
             systemStyleBubble
-        case .response(let image):
-            responseStyle(image: image)
+        case .response(let imageURL):
+            responseStyle(imageURL: imageURL)
         case .user:
             userStyleBubble
+        case .loading:
+            loadingStyleBubble
+        case .error:
+            errorStyleBubble
         }
     }
 }
@@ -39,55 +44,106 @@ extension MessageBubble {
     var systemStyleBubble: some View {
         HStack(alignment: .bottom, spacing: 8) {
             // Icon
-            Image(.senderIcon)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 32)
+            senderIcon
             // Text
-            bubbleText(background: .accentSecondary)
-                .frame(width: .screenWidth * 0.70)
+            bubbleText(message.text, background: .accentSecondary)
+                .frame(width: .screenWidth * 0.70, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
-    func responseStyle(image: Image) -> some View {
+    func responseStyle(imageURL: String) -> some View {
         HStack(alignment: .bottom, spacing: 8) {
             // Icon
-            Image(.senderIcon)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 32)
+            senderIcon
+            
             // Response Image
-            image
-                .resizable()
-                .scaledToFit()
-                .frame(height: 256)
-                .cornerRadius(12)
+            AsyncImage(url: URL(string: imageURL)) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 256, height: 256)
+                        .cornerRadius(12)
+                case .failure(let error):
+                    bubbleText(error.localizedDescription, background: .red)
+                        .frame(width: .screenWidth * 0.70, alignment: .leading)
+                case .empty:
+                    ProgressView()
+                        .frame(width: 256, height: 256)
+                        .background(Color.accentSecondary)
+                        .cornerRadius(12)
+                @unknown default:
+                    ProgressView()
+                        .frame(width: 256, height: 256)
+                        .background(Color.accentSecondary)
+                        .cornerRadius(12)
+                }
+            }
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     var userStyleBubble: some View {
         // Text
-        bubbleText(background: .accent)
-            .frame(width: .screenWidth * 0.70)
+        bubbleText(message.text, background: .accent)
+            .frame(width: .screenWidth * 0.70, alignment: .trailing)
             .frame(maxWidth: .infinity, alignment: .trailing)
     }
     
-    private func bubbleText(background: Color) -> some View {
-        Text(messageText)
+    var loadingStyleBubble: some View {
+        HStack(alignment: .bottom, spacing: 8) {
+            // Icon
+            senderIcon
+            // Text
+            loadingText
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    var errorStyleBubble: some View {
+        bubbleText(message.text, background: .red)
+            .frame(width: .screenWidth * 0.70, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var senderIcon: some View {
+        Image(.senderIcon)
+            .resizable()
+            .scaledToFit()
+            .frame(height: 32)
+    }
+    
+    private var loadingText: some View {
+        LoadingDotsText(prefix: message.text)
             .font(.body)
             .fontWeight(.medium)
             .fontDesign(.rounded)
             .padding(10)
             .foregroundStyle(.labelPrimary)
-            .background(background)
+            .background(.accentSecondary)
             .cornerRadius(12)
+            .frame(width: .screenWidth * 0.70, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private func bubbleText(_ messageText: String, background: Color) -> some View {
+        HStack {
+            Text(messageText)
+                .font(.body)
+                .fontWeight(.medium)
+                .fontDesign(.rounded)
+        }
+        .padding(10)
+        .foregroundStyle(.labelPrimary)
+        .background(background)
+        .cornerRadius(12)
     }
 }
 
-
 // MARK: - Preview
 #Preview {
-    MessageBubble(style: .user, messageText: "Speak, dear seeker… and I shall unveil what lies twenty years hence. Describe thy vision, and let the mirror conjure fate!")
+    MessageBubble(message: .init(bubbleStyle: .loading, text: "Hello"))
 }

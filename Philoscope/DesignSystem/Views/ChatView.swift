@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct ChatView: View {
+    
+    // MARK: - Properties
+    var messages: [ChatMessage]
+    
+    // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                ForEach(messages) { message in
+                    MessageBubble(message: message)
+                }
+            }
+            .padding(.vertical, 12)
+        }
     }
 }
 
 #Preview {
-    ChatView()
+    ChatView(messages: [ChatMessage(bubbleStyle: .user, text: "Hello, World! sdfsdf sadfsadfasdfsadfsdafsdfsadfsdasdfsadfsadfasdfasdfdsaf")])
 }

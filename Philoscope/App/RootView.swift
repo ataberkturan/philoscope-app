@@ -1,21 +1,18 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  Philoscope
 //
 //  Created by Ataberk Turan on 24/04/2025.
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 struct RootView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        RouterView { router in
+            HomeView(viewModel: .init(router: router))
         }
-        .padding()
     }
 }
 

@@ -24,4 +24,9 @@ extension Image {
     static var plusIcon: Image {
         Image(systemName: "plus")
     }
+    
+    /// X icon
+    static var xmarkIcon: Image {
+        Image(systemName: "xmark")
+    }
 }

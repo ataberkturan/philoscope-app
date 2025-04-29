@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct PhiloscopeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
+        .modelContainer(
+            for: [
+                ChatMessage.self,
+                Conversation.self,
+                ConversationHistory.self
+            ]
+        )
     }
 }
