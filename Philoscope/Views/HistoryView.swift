@@ -13,13 +13,18 @@ struct HistoryView: View {
     
     // MARK: - Properties
     @Environment(\.dismiss) var dismiss
+    @Query private var conversations: [Conversation]
+    @Environment(\.modelContext) private var modelContext
+    @State var viewModel: HomeViewModel
     
     // MARK: - Body
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 12) {
-                ForEach(0..<3) { index in
-                    HistoryListCell(title: "Hello world")
+                if conversations.isEmpty {
+                    contentUnavailableView
+                } else {
+                    content
                 }
             }
             .padding(.horizontal, 16)
@@ -37,6 +42,31 @@ struct HistoryView: View {
 
 // MARK: - Helper Views
 extension HistoryView {
+    var content: some View {
+        ForEach(conversations) { conversation in
+            HistoryListCell(conversation: conversation)
+                .onTapGesture {
+                    viewModel.setMessagesToSelected(with: conversation)
+                }
+                .contextMenu {
+                    Button("Delete", systemImage: "trash.fill", role: .destructive) {
+                        modelContext.delete(conversation)
+                    }
+                }
+        }
+    }
+    
+    var contentUnavailableView: some View {
+        ContentUnavailableView("No Conversations",
+            systemImage: "clock.arrow.trianglehead.counterclockwise.rotate.90",
+            description:
+                Text("Start a new conversation to see it appear here.")
+            .foregroundStyle(.accent.opacity(0.8))
+        )
+        .foregroundStyle(.accent)
+        .fontDesign(.rounded)
+    }
+    
     var dismissButton: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button {
@@ -71,6 +101,6 @@ extension HistoryView {
 // MARK: - Previews
 #Preview {
     RouterView { router in
-        HistoryView()
+        HistoryView(viewModel: .init(router: router))
     }
 }

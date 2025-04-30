@@ -13,7 +13,6 @@ struct PromptField: View {
     @Binding var text: String
     var placeholder: String
     var sendAction: () -> Void
-    @FocusState private var isFocused: Bool
     
     // MARK: - Body
     var body: some View {
@@ -25,9 +24,8 @@ struct PromptField: View {
         .frame(maxWidth: .infinity)
         .background(Color(.textfieldBackground))
         .cornerRadius(999)
-        .onTapGesture {
-            isFocused = false
-        }
+        .padding(.vertical, 8)
+        .background(Color.background)
         .onSubmit {
             sendAction()
         }
@@ -47,7 +45,6 @@ extension PromptField {
         .fontWeight(.medium)
         .fontDesign(.rounded)
         .padding(.leading, 8)
-        .focused($isFocused)
     }
     
     var placeholderText: Text {

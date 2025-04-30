@@ -15,23 +15,23 @@ struct ImageService {
     
     // MARK: - Initializers
     init(client: OpenAIClient) { self.client = client }
-
+    
     // MARK: - Helper Methods
     func generateImage(from prompt: String) async throws -> ImageResult {
         let req = ImageGenerationRequest(
-            model: "gpt-image-1",
+            model: "dall-e-3",
             prompt: prompt,
             n: 1,
-            size: "1024x1024"
+            size: "1024x1024",
+            response_format: "b64_json"
         )
         let res: ImageGenerationResponse = try await client.post(.images, body: req)
-
+        
         guard
             let b64 = res.data.first?.b64_json,
-            let imgData = Data(base64Encoded: b64),
-            let uiImg = UIImage(data: imgData)
+            let imgData = Data(base64Encoded: b64)
         else { throw URLError(.cannotDecodeContentData) }
-
-        return .init(prompt: prompt, image: uiImg)
+        
+        return ImageResult(prompt: prompt, data: imgData)
     }
 }

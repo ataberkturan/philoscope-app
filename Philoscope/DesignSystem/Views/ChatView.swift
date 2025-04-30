@@ -15,12 +15,13 @@ struct ChatView: View {
     // MARK: - Body
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                ForEach(messages) { message in
+            LazyVStack(alignment: .leading, spacing: 24) {
+                ForEach(messages.sorted(by: { $0.createdAt < $1.createdAt }), id: \.id) { message in
                     MessageBubble(message: message)
                 }
             }
             .padding(.vertical, 12)
+            .padding(.horizontal, 16)
         }
     }
 }

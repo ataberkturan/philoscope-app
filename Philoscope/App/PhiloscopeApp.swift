@@ -17,8 +17,7 @@ struct PhiloscopeApp: App {
         .modelContainer(
             for: [
                 ChatMessage.self,
-                Conversation.self,
-                ConversationHistory.self
+                Conversation.self
             ]
         )
     }

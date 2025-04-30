@@ -14,48 +14,54 @@ import SwiftData
 class HomeViewModel {
     
     // MARK: - Properties
-    
     let router: AnyRouter
-    var messages: [ChatMessage] = [.systemDefaultMessage]
+    var conversation: Conversation
     var messageText: String = ""
-    
+    @MainActor var phase: GenerationPhase = .idle
+    @MainActor var isLoading: Bool = false
+
+    private var generationTask: Task<Void, Never>?
+
     // MARK: - OpenAI Services
     private let promptService: PromptService
     private let imageService: ImageService
-
-    // MARK: - UI State
-    @MainActor var isLoading: Bool = false
-    @MainActor var errorMessage: String?
-    @MainActor var phase: GenerationPhase = .idle
     
     // MARK: - Initializers
     init(router: AnyRouter) {
         self.router = router
-
-        let client = OpenAIClient(apiKey: "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")
+        
+        let conversation = Conversation(title: "", messages: [.systemDefaultMessage])
+        self.conversation = conversation
+        
+        let client = OpenAIClient()
         self.promptService = PromptService(client: client)
         self.imageService  = ImageService(client: client)
     }
     
     // MARK: - Helper Methods
-    
-    @MainActor func sendMessage() {
+    @MainActor
+    func sendMessage(modelContext: ModelContext) {
         guard !messageText.isEmpty else { return }
-
+        
+        conversation.title = messageText
+        
         let userMessage = ChatMessage(bubbleStyle: .user, text: messageText)
-        messages.append(userMessage)
+        conversation.messages.append(userMessage)
 
         let prompt = messageText
         messageText = ""
-        
-        Task { await generateImage(for: prompt) }
+
+        generationTask?.cancel()
+        generationTask = Task {
+            await generateImage(for: prompt, modelContext: modelContext)
+        }
     }
 
     // MARK: - Image Pipeline
     @MainActor
-    private func generateImage(for prompt: String) async {
+    private func generateImage(for prompt: String, modelContext: ModelContext) async {
         phase = .refining
-        messages.append(
+        conversation.messages.append(
             ChatMessage(
                 bubbleStyle: .loading,
                 text: "🔮 Gaze deep into the swirling mists... I am weaving the strands of fate to reveal your future. Patience, for the vision is taking shape"
@@ -63,57 +69,67 @@ class HomeViewModel {
         )
         
         isLoading = true
-        errorMessage = nil
         defer { isLoading = false }
 
         do {
             let refinedPrompt = try await promptService.refinePrompt(prompt)
             phase = .generating
             
-            if let lastLoadingIndex = messages.lastIndex(where: { $0.bubbleStyle == .loading }) {
-                messages[lastLoadingIndex].text =
+            if let lastLoadingIndex = conversation.messages.lastIndex(where: { $0.bubbleStyle == .loading }) {
+                conversation.messages[lastLoadingIndex].text =
                     "🔮 The swirling shapes converge within the mirror, preparing the vision"
             }
             
             let result = try await imageService.generateImage(from: refinedPrompt)
+            let data = result.data
 
-            guard let pngData = result.image.pngData() else {
-                throw URLError(.cannotCreateFile)
-            }
-            let filename = UUID().uuidString + ".png"
-            let fileURL = FileManager.default.temporaryDirectory
-                .appendingPathComponent(filename)
-            try pngData.write(to: fileURL, options: .atomic)
-
-            messages.removeLast()
-            // Load raw image bytes
-            let imageBytes = try Data(contentsOf: fileURL)
-            // Create and persist the ChatMessage with image data
+            conversation.messages.removeLast()
             let responseMsg = ChatMessage(
-                bubbleStyle: .response(imageURL: fileURL.absoluteString),
+                bubbleStyle: .response,
                 text: "",
-                imageData: imageBytes
+                imageData: data
             )
-            messages.append(responseMsg)
+            conversation.messages.append(responseMsg)
             phase = .finished
+            modelContext.insert(conversation)
         } catch {
-            messages.removeLast()
-            messages.append(
+            guard let task = generationTask else { return }
+            if task.isCancelled { return }
+            conversation.messages.removeLast()
+            conversation.messages.append(
                 ChatMessage(
-                    bubbleStyle: .system,
-                    text: "An error has darkened the mirror: \(error.localizedDescription)"
+                    bubbleStyle: .error,
+                    text: "An error has darkened the mirror"
                 )
             )
             phase = .error(error.localizedDescription)
-            errorMessage = error.localizedDescription
         }
     }
-    
+
+    @MainActor
+    func cancelGeneration() {
+        generationTask?.cancel()
+        generationTask = nil
+    }
     
     @MainActor
     func navigateToHistory() {
-        router.showScreen(.sheet) { router in
-            HistoryView()
+        router.showScreen(.sheet, id: "history") { router in
+            HistoryView(viewModel: self)
         }
+    }
+    
+    @MainActor
+    func setMessagesToSelected(with selectedConversation: Conversation) {
+        self.conversation = selectedConversation
+        router.dismissScreen(id: "history")
+    }
+    
+    @MainActor
+    func newConversation() {
+        guard !conversation.title.isEmpty else { return }
+        cancelGeneration()
+        let conversation = Conversation(title: "", messages: [.systemDefaultMessage])
+        self.conversation = conversation
     }
 }

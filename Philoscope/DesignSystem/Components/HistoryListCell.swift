@@ -10,11 +10,11 @@ import SwiftUI
 struct HistoryListCell: View {
     
     // MARK: - Properties
-    let title: String
+    let conversation: Conversation
     
     // MARK: - Body
     var body: some View {
-        Text(title)
+        Text(conversation.title)
             .foregroundStyle(Color.labelPrimary)
             .font(.body)
             .fontWeight(.bold)
@@ -26,8 +26,4 @@ struct HistoryListCell: View {
             .background(Color.accentSecondary)
             .cornerRadius(12)
     }
-}
-
-#Preview {
-    HistoryListCell(title: "Hello world")
 }

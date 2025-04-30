@@ -10,7 +10,7 @@ import Foundation
 struct OpenAIClient {
     
     // MARK: - Properties
-    private let key: String
+    private let key: String = "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"
     private let session = URLSession.shared
     private let base = URL(string: "https://api.openai.com")!
     
@@ -18,11 +18,6 @@ struct OpenAIClient {
     enum Endpoint: String {
         case chat = "/v1/chat/completions"
         case images = "/v1/images/generations"
-    }
-    
-    // MARK: - Initializers
-    init(apiKey: String) {
-        self.key = apiKey
     }
     
     // MARK: - Helper Methods

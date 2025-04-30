@@ -14,19 +14,24 @@ struct HomeView: View {
     // MARK: - Properties
     @State var viewModel: HomeViewModel
     @State var messageText: String = ""
+    @Environment(\.modelContext) private var modelContext
+    @FocusState private var isFocused: Bool
     
     // MARK: - Body
     var body: some View {
         VStack(spacing: .zero) {
-            ChatView(messages: viewModel.messages)
-                .animation(.easeInOut, value: viewModel.messages)
+            ChatView(messages: viewModel.conversation.messages)
+                .padding(.horizontal, -16)
+                .animation(.easeInOut, value: viewModel.conversation.messages)
+            
             PromptField(
                 text: $viewModel.messageText,
                 placeholder: "Type what you wanna see...",
                 sendAction: {
-                    viewModel.sendMessage()
-            })
+                    viewModel.sendMessage(modelContext: self.modelContext)
+                })
             .padding(.bottom, 12)
+            .focused($isFocused)
         }
         .padding(.horizontal, 16)
         .background(Color.background)
@@ -37,7 +42,13 @@ struct HomeView: View {
             // Navigation Title
             navigationTitle
             // Navigation Trailing Button
-            newChatButton
+            newConversationButton
+        }
+        .onTapGesture {
+            isFocused = false
+        }
+        .onDisappear {
+            viewModel.cancelGeneration()
         }
     }
 }
@@ -59,10 +70,10 @@ extension HomeView {
         }
     }
     
-    var newChatButton: some ToolbarContent {
+    var newConversationButton: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button {
-                // New Chat Action
+                viewModel.newConversation()
             } label: {
                 Image.plusIcon
                     .foregroundStyle(.accent)

@@ -17,17 +17,21 @@ class ChatMessage: Identifiable {
 
     @Attribute
     var imageData: Data? = nil
+    
+    var createdAt: Date
 
     init(
         id: UUID = UUID(),
         bubbleStyle: MessageBubble.Style,
         text: String,
-        imageData: Data? = nil
+        imageData: Data? = nil,
+        createdAt: Date = .now
     ) {
         self.id = id
         self.bubbleStyle = bubbleStyle
         self.text = text
         self.imageData = imageData
+        self.createdAt = createdAt
     }
 }
 
@@ -42,7 +46,7 @@ extension ChatMessage {
         return [
             ChatMessage(bubbleStyle: .system, text: "Speak, dear seeker… and I shall unveil what lies twenty years hence. Describe thy vision, and let the mirror conjure fate!"),
             ChatMessage(bubbleStyle: .user, text: "Hello, show me the future Turkey "),
-            ChatMessage(bubbleStyle: .response(imageURL: "https://picsum.photos/256/256"), text: "")
+            ChatMessage(bubbleStyle: .response, text: "")
         ]
     }
 }

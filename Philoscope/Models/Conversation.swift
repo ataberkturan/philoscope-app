@@ -11,10 +11,12 @@ import SwiftData
 @Model
 class Conversation: Identifiable {
     var id = UUID()
+    var title: String
     var messages: [ChatMessage]
     
-    init(id: UUID = UUID(), messages: [ChatMessage]) {
+    init(id: UUID = UUID(), title: String, messages: [ChatMessage]) {
         self.id = id
+        self.title = title
         self.messages = messages
     }
 }

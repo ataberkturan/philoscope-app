@@ -5,9 +5,9 @@
 //  Created by Ataberk Turan on 28/04/2025.
 //
 
-import UIKit
+import Foundation
 
 struct ImageResult {
     let prompt: String
-    let image: UIImage
+    let data: Data
 }
