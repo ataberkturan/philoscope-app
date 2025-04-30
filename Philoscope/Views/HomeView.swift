@@ -27,6 +27,7 @@ struct HomeView: View {
             PromptField(
                 text: $viewModel.messageText,
                 placeholder: "Type what you wanna see...",
+                isSendButtonDisabled: viewModel.isLoading,
                 sendAction: {
                     viewModel.sendMessage(modelContext: self.modelContext)
                 })

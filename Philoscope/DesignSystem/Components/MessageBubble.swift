@@ -13,12 +13,13 @@ struct MessageBubble: View {
     var message: ChatMessage
     
     // MARK: - Enums
-    enum Style: Codable, Equatable {
+    enum Style: Codable, Equatable, Identifiable {
         case system
         case response
         case user
         case loading
         case error
+        var id: UUID { UUID() }
     }
     
     // MARK: - Body
@@ -64,6 +65,13 @@ extension MessageBubble {
                     .scaledToFit()
                     .frame(width: 256, height: 256)
                     .cornerRadius(12)
+                    .contextMenu {
+                        Button {
+                            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+                        } label: {
+                            Label("Save Image", systemImage: "arrow.down.circle.fill")
+                        }
+                    }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

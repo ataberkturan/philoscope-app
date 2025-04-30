@@ -37,6 +37,7 @@
 		2A6AEA222DC0C218003654BE /* PromptServiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AEA212DC0C210003654BE /* PromptServiceModels.swift */; };
 		2A6AEA242DC0C2BD003654BE /* ImageServiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AEA232DC0C2B1003654BE /* ImageServiceModels.swift */; };
 		2A6AEA262DC0C3B5003654BE /* PromptRefinement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AEA252DC0C3B5003654BE /* PromptRefinement.swift */; };
+		2A6AEA2F2DC2C6BD003654BE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AEA2E2DC2C6BD003654BE /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		2A6AEA212DC0C210003654BE /* PromptServiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptServiceModels.swift; sourceTree = "<group>"; };
 		2A6AEA232DC0C2B1003654BE /* ImageServiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceModels.swift; sourceTree = "<group>"; };
 		2A6AEA252DC0C3B5003654BE /* PromptRefinement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptRefinement.swift; sourceTree = "<group>"; };
+		2A6AEA2E2DC2C6BD003654BE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 		2A6AEA0F2DBFF497003654BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2A6AEA2E2DC2C6BD003654BE /* HapticManager.swift */,
 				2A6AEA102DBFF4A1003654BE /* OpenAIClient.swift */,
 				2A6AEA122DBFF4B3003654BE /* PromptService.swift */,
 				2A6AEA142DBFF4C1003654BE /* ImageService.swift */,
@@ -443,6 +446,7 @@
 				2A6AEA182DBFFD0E003654BE /* OpenAIClientError.swift in Sources */,
 				2A6AEA052DBFD778003654BE /* ChatView.swift in Sources */,
 				2A6AEA222DC0C218003654BE /* PromptServiceModels.swift in Sources */,
+				2A6AEA2F2DC2C6BD003654BE /* HapticManager.swift in Sources */,
 				2A6AEA1C2DC0B3B7003654BE /* Conversation.swift in Sources */,
 				2A6AEA242DC0C2BD003654BE /* ImageServiceModels.swift in Sources */,
 				2A6AEA112DBFF4A1003654BE /* OpenAIClient.swift in Sources */,
@@ -623,6 +627,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to your photo library to save images you choose to download.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -657,6 +662,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to your photo library to save images you choose to download.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

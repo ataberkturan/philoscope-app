@@ -12,7 +12,16 @@ struct PromptField: View {
     // MARK: - Properties
     @Binding var text: String
     var placeholder: String
+    var isSendButtonDisabled: Bool
     var sendAction: () -> Void
+    
+    // MARK: - Initializers
+    init(text: Binding<String>, placeholder: String, isSendButtonDisabled: Bool = false, sendAction: @escaping () -> Void) {
+        self._text = text
+        self.placeholder = placeholder
+        self.isSendButtonDisabled = isSendButtonDisabled
+        self.sendAction = sendAction
+    }
     
     // MARK: - Body
     var body: some View {
@@ -67,7 +76,9 @@ extension PromptField {
                 .frame(width: 40, height: 40)
                 .background(Color.accent)
                 .clipShape(Circle())
+                .opacity(isSendButtonDisabled ? 0.3 : 1.0)
         }
+        .disabled(isSendButtonDisabled)
     }
 }
 

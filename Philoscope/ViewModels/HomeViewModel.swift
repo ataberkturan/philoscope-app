@@ -42,7 +42,8 @@ class HomeViewModel {
     @MainActor
     func sendMessage(modelContext: ModelContext) {
         guard !messageText.isEmpty else { return }
-        
+        HapticManager.shared.impact(.medium)
+
         conversation.title = messageText
         
         let userMessage = ChatMessage(bubbleStyle: .user, text: messageText)
@@ -91,10 +92,16 @@ class HomeViewModel {
             )
             conversation.messages.append(responseMsg)
             phase = .finished
+            
+            HapticManager.shared.notification(.success)
+            
             modelContext.insert(conversation)
         } catch {
             guard let task = generationTask else { return }
             if task.isCancelled { return }
+            
+            HapticManager.shared.notification(.error)
+            
             conversation.messages.removeLast()
             conversation.messages.append(
                 ChatMessage(
@@ -121,14 +128,17 @@ class HomeViewModel {
     
     @MainActor
     func setMessagesToSelected(with selectedConversation: Conversation) {
+        cancelGeneration()
         self.conversation = selectedConversation
         router.dismissScreen(id: "history")
+        HapticManager.shared.impact(.medium)
     }
     
     @MainActor
     func newConversation() {
         guard !conversation.title.isEmpty else { return }
         cancelGeneration()
+        HapticManager.shared.impact(.medium)
         let conversation = Conversation(title: "", messages: [.systemDefaultMessage])
         self.conversation = conversation
     }
