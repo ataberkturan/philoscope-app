@@ -40,6 +40,7 @@
 		2A6AEA2F2DC2C6BD003654BE /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AEA2E2DC2C6BD003654BE /* HapticManager.swift */; };
 		2A6AEA312DC382BD003654BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6AEA302DC382BD003654BE /* Constants.swift */; };
 		2A6AEA332DC3885B003654BE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2A6AEA322DC3885B003654BE /* Localizable.xcstrings */; };
+		2A6AEA362DC3A429003654BE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6AEA352DC3A429003654BE /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		2A6AEA2E2DC2C6BD003654BE /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		2A6AEA302DC382BD003654BE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A6AEA322DC3885B003654BE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		2A6AEA352DC3A429003654BE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2A6AEA372DC3A4C9003654BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 		2A6AE9D62DBFA7A7003654BE /* Philoscope */ = {
 			isa = PBXGroup;
 			children = (
+				2A6AEA372DC3A4C9003654BE /* Info.plist */,
 				2A6AEA342DC38C7E003654BE /* Constants */,
 				2A6AE9ED2DBFAC85003654BE /* App */,
 				2A6AEA002DBFD66D003654BE /* Models */,
@@ -208,6 +212,7 @@
 			children = (
 				2A6AE9D52DBFA7A7003654BE /* PhiloscopeApp.swift */,
 				2A6AE9D42DBFA7A7003654BE /* RootView.swift */,
+				2A6AEA352DC3A429003654BE /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				2A6AE9F92DBFB19D003654BE /* Colors.xcassets in Resources */,
 				2A6AE9D72DBFA7A7003654BE /* Preview Assets.xcassets in Resources */,
 				2A6AEA332DC3885B003654BE /* Localizable.xcstrings in Resources */,
+				2A6AEA362DC3A429003654BE /* Launch Screen.storyboard in Resources */,
 				2A6AE9D82DBFA7A7003654BE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,17 +644,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Philoscope/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4HWQ789F6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Philoscope/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to your photo library to save images you choose to download.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -673,17 +682,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Philoscope/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4HWQ789F6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Philoscope/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app needs access to your photo library to save images you choose to download.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

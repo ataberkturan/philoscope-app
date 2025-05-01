@@ -46,7 +46,7 @@ struct Secrets {
 - Select your target device (iOS 17+ simulator or real device).
 - Press Cmd + R to build and run the app.
 
-## 📱 Demo
+## 📱 Screenshots
 
 <p align="center">
   <img src="home-view.PNG" alt="Philoscope Home View - Chat Interface with Desert Oasis Example" width="250"/>
