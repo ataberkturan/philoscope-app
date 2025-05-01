@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     struct Secrets {
-        static let openAIKey: String = "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"
+        static let openAIKey: String = "OPEN_AI_API_KEY_HERE"
         static let openAIBaseURL: URL = URL(string: "https://api.openai.com")!
         
         struct NavigationIDs {

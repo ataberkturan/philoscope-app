@@ -53,7 +53,7 @@ struct Secrets {
   <img src="history-view.PNG" alt="Philoscope History View" width="250"/>
 </p>
 
-### 🎥 Demo Video
+## 🎥 Demo Video
 
 Check out Philoscope in action:
 
