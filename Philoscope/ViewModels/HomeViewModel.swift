@@ -159,10 +159,10 @@ extension HomeViewModel {
             HapticManager.shared.notification(.success)
             modelContext.insert(conversation)
 
-        } catch is CancellationError {
-            // Ignoring error if the task was cancelled
-            return
         } catch {
+            guard let task = generationTask else { return }
+            if task.isCancelled { return }
+            
             conversation.messages.removeAll(where: { $0.bubbleStyle == .loading })
             addErrorMessage()
             phase = .error(error.localizedDescription)
