@@ -48,16 +48,13 @@ struct Secrets {
 
 ## 📱 Demo
 
-<img src="home-view.PNG" alt="Philoscope Home View - Chat Interface with Desert Oasis Example" width="250"/>
-
-<img src="history-view.PNG" alt="Philoscope History View" width="250"/>
+<p align="center">
+  <img src="home-view.PNG" alt="Philoscope Home View - Chat Interface with Desert Oasis Example" width="250"/>
+  <img src="history-view.PNG" alt="Philoscope History View" width="250"/>
+</p>
 
 ### 🎥 Demo Video
 
 Check out Philoscope in action:
 
-[![Philoscope Demo Video](home-view.PNG)](https://youtube.com/shorts/VuNs3bYFKZM)
-
-*Click the image above to watch the demo video on YouTube*
-
-
+[Watch the Philoscope demo video on YouTube](https://youtube.com/shorts/VuNs3bYFKZM)
