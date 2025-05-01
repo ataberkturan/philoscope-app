@@ -1,0 +1,119 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "HistoryView.DeleteButtonTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "HistoryView.EmptyDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start a new conversation to see it appear here."
+          }
+        }
+      }
+    },
+    "HistoryView.EmptyTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Conversations"
+          }
+        }
+      }
+    },
+    "HistoryView.NavigationTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        }
+      }
+    },
+    "HomeView.NavigationTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Philoscope"
+          }
+        }
+      }
+    },
+    "HomeView.PlaceholderText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type to see your future…"
+          }
+        }
+      }
+    },
+    "HomeViewModel.ErrorMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error has darkened the mirror."
+          }
+        }
+      }
+    },
+    "HomeViewModel.LoadingMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🔮 I divine thy words… shaping them into a vision worthy of the mirror’s gaze. The prophecy is forming"
+          }
+        }
+      }
+    },
+    "HomeViewModel.PreparingMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "✨ The mirror glows… conjuring the image born of your fate. Soon, it shall be revealed"
+          }
+        }
+      }
+    },
+    "MessageBubble.SaveImageLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save Image"
+          }
+        }
+      }
+    },
+    "MessageBubble.SystemDefaultMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speak, dear seeker… and I shall unveil what lies twenty years hence. Describe thy vision, and let the mirror conjure fate!"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

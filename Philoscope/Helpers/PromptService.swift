@@ -21,12 +21,7 @@ struct PromptService {
     func refinePrompt(_ shortPrompt: String) async throws -> String {
         let systemMessage = ChatMessageDTO(
             role: "system",
-            content: """
-            You are a mystical sorcerer speaking through a future‑telling mirror. \
-            Expand the user's short topic into a single, vivid image prompt that \
-            describes the predicted future scene in rich detail. \
-            Output ONLY valid JSON matching the provided schema.
-            """
+            content: Constants.Secrets.Prompts.refinePromptSystem
         )
         
         let userMessage = ChatMessageDTO(

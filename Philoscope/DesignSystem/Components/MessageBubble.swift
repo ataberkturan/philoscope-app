@@ -66,11 +66,7 @@ extension MessageBubble {
                     .frame(width: 256, height: 256)
                     .cornerRadius(12)
                     .contextMenu {
-                        Button {
-                            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
-                        } label: {
-                            Label("Save Image", systemImage: "arrow.down.circle.fill")
-                        }
+                        saveImageButton(uiImage: uiImage)
                     }
             }
         }
@@ -103,6 +99,14 @@ extension MessageBubble {
                 .frame(width: .screenWidth * 0.70, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private func saveImageButton(uiImage: UIImage) -> some View {
+        Button {
+            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+        } label: {
+            Label(Constants.MessageBubble.saveImageLabel, systemImage: Symbol.saveImage.name)
+        }
     }
     
     private var senderIcon: some View {

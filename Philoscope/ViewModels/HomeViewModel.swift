@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftfulRouting
-import UIKit
 import SwiftData
 
 @Observable
@@ -17,6 +16,7 @@ class HomeViewModel {
     let router: AnyRouter
     var conversation: Conversation
     var messageText: String = ""
+    
     @MainActor var phase: GenerationPhase = .idle
     @MainActor var isLoading: Bool = false
 
@@ -45,9 +45,7 @@ class HomeViewModel {
         HapticManager.shared.impact(.medium)
 
         conversation.title = messageText
-        
-        let userMessage = ChatMessage(bubbleStyle: .user, text: messageText)
-        conversation.messages.append(userMessage)
+        addUserMessage(messageText)
 
         let prompt = messageText
         messageText = ""
@@ -55,61 +53,6 @@ class HomeViewModel {
         generationTask?.cancel()
         generationTask = Task {
             await generateImage(for: prompt, modelContext: modelContext)
-        }
-    }
-
-    // MARK: - Image Pipeline
-    @MainActor
-    private func generateImage(for prompt: String, modelContext: ModelContext) async {
-        phase = .refining
-        conversation.messages.append(
-            ChatMessage(
-                bubbleStyle: .loading,
-                text: "🔮 Gaze deep into the swirling mists... I am weaving the strands of fate to reveal your future. Patience, for the vision is taking shape"
-            )
-        )
-        
-        isLoading = true
-        defer { isLoading = false }
-
-        do {
-            let refinedPrompt = try await promptService.refinePrompt(prompt)
-            phase = .generating
-            
-            if let lastLoadingIndex = conversation.messages.lastIndex(where: { $0.bubbleStyle == .loading }) {
-                conversation.messages[lastLoadingIndex].text =
-                    "🔮 The swirling shapes converge within the mirror, preparing the vision"
-            }
-            
-            let result = try await imageService.generateImage(from: refinedPrompt)
-            let data = result.data
-
-            conversation.messages.removeLast()
-            let responseMsg = ChatMessage(
-                bubbleStyle: .response,
-                text: "",
-                imageData: data
-            )
-            conversation.messages.append(responseMsg)
-            phase = .finished
-            
-            HapticManager.shared.notification(.success)
-            
-            modelContext.insert(conversation)
-        } catch {
-            guard let task = generationTask else { return }
-            if task.isCancelled { return }
-            
-            HapticManager.shared.notification(.error)
-            
-            conversation.messages.removeLast()
-            conversation.messages.append(
-                ChatMessage(
-                    bubbleStyle: .error,
-                    text: "An error has darkened the mirror"
-                )
-            )
-            phase = .error(error.localizedDescription)
         }
     }
 
@@ -121,7 +64,7 @@ class HomeViewModel {
     
     @MainActor
     func navigateToHistory() {
-        router.showScreen(.sheet, id: "history") { router in
+        router.showScreen(.sheet, id: Constants.Secrets.NavigationIDs.history) { router in
             HistoryView(viewModel: self)
         }
     }
@@ -130,7 +73,7 @@ class HomeViewModel {
     func setMessagesToSelected(with selectedConversation: Conversation) {
         cancelGeneration()
         self.conversation = selectedConversation
-        router.dismissScreen(id: "history")
+        router.dismissScreen(id: Constants.Secrets.NavigationIDs.history)
         HapticManager.shared.impact(.medium)
     }
     
@@ -141,5 +84,89 @@ class HomeViewModel {
         HapticManager.shared.impact(.medium)
         let conversation = Conversation(title: "", messages: [.systemDefaultMessage])
         self.conversation = conversation
+    }
+}
+
+// MARK: - Message Helpers
+extension HomeViewModel {
+    @MainActor
+    fileprivate func addUserMessage(_ text: String) {
+        conversation.messages.append(ChatMessage(bubbleStyle: .user, text: text))
+    }
+
+    @MainActor
+    fileprivate func addLoadingMessage() {
+        conversation.messages.append(ChatMessage(bubbleStyle: .loading,
+                                                 text: Constants.HomeViewModel.loadingMessage))
+    }
+
+    @MainActor
+    fileprivate func updateLoadingMessage() {
+        if let index = conversation.messages.lastIndex(where: { $0.bubbleStyle == .loading }) {
+            conversation.messages[index].text = Constants.HomeViewModel.preparingMessage
+        }
+    }
+
+    @MainActor
+    fileprivate func addResponseImage(_ data: Data) {
+        conversation.messages.append(ChatMessage(bubbleStyle: .response,
+                                                 text: "",
+                                                 imageData: data))
+    }
+
+    @MainActor
+    fileprivate func addErrorMessage() {
+        conversation.messages.append(ChatMessage(bubbleStyle: .error,
+                                                 text: Constants.HomeViewModel.errorMessage))
+    }
+}
+
+// MARK: - Networking
+extension HomeViewModel {
+    fileprivate func refine(_ prompt: String) async throws -> String {
+        try await promptService.refinePrompt(prompt)
+    }
+
+    fileprivate func fetchImageData(for refinedPrompt: String) async throws -> Data {
+        let result = try await imageService.generateImage(from: refinedPrompt)
+        return result.data
+    }
+}
+
+// MARK: - Image Pipeline
+extension HomeViewModel {
+    @MainActor
+    fileprivate func generateImage(for prompt: String, modelContext: ModelContext) async {
+        phase = .refining
+        addLoadingMessage()
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let refined = try await refine(prompt)
+            guard !Task.isCancelled else { throw CancellationError() }
+
+            phase = .generating
+            updateLoadingMessage()
+
+            let imageData = try await fetchImageData(for: refined)
+            guard !Task.isCancelled else { throw CancellationError() }
+
+            // Remove loading message then append image
+            conversation.messages.removeLast()
+            addResponseImage(imageData)
+            phase = .finished
+            HapticManager.shared.notification(.success)
+            modelContext.insert(conversation)
+
+        } catch is CancellationError {
+            // Ignoring error if the task was cancelled
+            return
+        } catch {
+            conversation.messages.removeAll(where: { $0.bubbleStyle == .loading })
+            addErrorMessage()
+            phase = .error(error.localizedDescription)
+            HapticManager.shared.notification(.error)
+        }
     }
 }

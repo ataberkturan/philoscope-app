@@ -12,7 +12,7 @@ struct ImageGenerationRequest: Encodable {
     let prompt: String
     let n: Int
     let size: String
-    let response_format: String   // added
+    let response_format: String
 }
 
 struct ImageDatum: Decodable {

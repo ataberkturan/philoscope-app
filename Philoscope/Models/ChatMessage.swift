@@ -38,15 +38,6 @@ class ChatMessage: Identifiable {
 // MARK: - Dummy Data
 extension ChatMessage {
     static var systemDefaultMessage: ChatMessage {
-        ChatMessage(bubbleStyle: .system, text: "Speak, dear seeker… and I shall unveil what lies twenty years hence. Describe thy vision, and let the mirror conjure fate!")
-    }
-    
-    /// Sample messages for preview and testing
-    static var dummyMessages: [ChatMessage] {
-        return [
-            ChatMessage(bubbleStyle: .system, text: "Speak, dear seeker… and I shall unveil what lies twenty years hence. Describe thy vision, and let the mirror conjure fate!"),
-            ChatMessage(bubbleStyle: .user, text: "Hello, show me the future Turkey "),
-            ChatMessage(bubbleStyle: .response, text: "")
-        ]
+        ChatMessage(bubbleStyle: .system, text: Constants.MessageBubble.systemDefaultMessage)
     }
 }

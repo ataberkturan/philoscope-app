@@ -26,7 +26,7 @@ struct HomeView: View {
             
             PromptField(
                 text: $viewModel.messageText,
-                placeholder: "Type what you wanna see...",
+                placeholder: Constants.HomeView.placeholder,
                 isSendButtonDisabled: viewModel.isLoading,
                 sendAction: {
                     viewModel.sendMessage(modelContext: self.modelContext)
@@ -62,7 +62,7 @@ extension HomeView {
             Button {
                 viewModel.navigateToHistory()
             } label: {
-                Image.historyIcon
+                Symbol.history.image
                     .foregroundStyle(.accent)
                     .font(.title3)
                     .fontDesign(.rounded)
@@ -76,7 +76,7 @@ extension HomeView {
             Button {
                 viewModel.newConversation()
             } label: {
-                Image.plusIcon
+                Symbol.plus.image
                     .foregroundStyle(.accent)
                     .font(.title3)
                     .fontDesign(.rounded)
@@ -87,7 +87,7 @@ extension HomeView {
     
     var navigationTitle: some ToolbarContent {
         ToolbarItem(placement: .principal) {
-            Text("Philoscope")
+            Text(Constants.HomeView.navigationTitle)
                 .foregroundStyle(.accent)
                 .font(.title)
                 .fontWeight(.semibold)

@@ -49,7 +49,7 @@ extension HistoryView {
                     viewModel.setMessagesToSelected(with: conversation)
                 }
                 .contextMenu {
-                    Button("Delete", systemImage: "trash.fill", role: .destructive) {
+                    Button(Constants.HistoryView.deleteButtonTitle, systemImage: Symbol.trash.name, role: .destructive) {
                         modelContext.delete(conversation)
                     }
                 }
@@ -57,11 +57,11 @@ extension HistoryView {
     }
     
     var contentUnavailableView: some View {
-        ContentUnavailableView("No Conversations",
-            systemImage: "clock.arrow.trianglehead.counterclockwise.rotate.90",
-            description:
-                Text("Start a new conversation to see it appear here.")
-            .foregroundStyle(.accent.opacity(0.8))
+        ContentUnavailableView(
+            Constants.HistoryView.emptyStateTitle,
+            systemImage: Symbol.history.name,
+            description: Text(Constants.HistoryView.emptyStateDescription)
+                .foregroundStyle(.accent.opacity(0.8))
         )
         .foregroundStyle(.accent)
         .fontDesign(.rounded)
@@ -72,7 +72,7 @@ extension HistoryView {
             Button {
                 dismiss()
             } label: {
-                Image.xmarkIcon
+                Symbol.xmark.image
                     .resizable()
                     .scaledToFit()
                     .frame(height: 10)
@@ -89,7 +89,7 @@ extension HistoryView {
     
     var navigationTitle: some ToolbarContent {
         ToolbarItem(placement: .principal) {
-            Text("History")
+            Text(Constants.HistoryView.navigationTitle)
                 .foregroundStyle(.accent)
                 .font(.headline)
                 .fontWeight(.semibold)

@@ -9,24 +9,16 @@
 import Foundation
 import SwiftUI
 
-extension Image {
-    /// Magic wand icon
-    static var magicIcon: Image {
-        Image(systemName: "wand.and.sparkles")
-    }
+struct Symbol {
+    let name: String
+    var image: Image { Image(systemName: name) }
+}
 
-    /// History icon (counterclockwise arrow)
-    static var historyIcon: Image {
-        Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
-    }
-
-    /// Plus icon
-    static var plusIcon: Image {
-        Image(systemName: "plus")
-    }
-    
-    /// X icon
-    static var xmarkIcon: Image {
-        Image(systemName: "xmark")
-    }
+extension Symbol {
+    static let magic = Symbol(name: "wand.and.sparkles")
+    static let history = Symbol(name: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+    static let plus = Symbol(name: "plus")
+    static let xmark = Symbol(name: "xmark")
+    static let saveImage = Symbol(name: "arrow.down.circle.fill")
+    static let trash = Symbol(name: "trash.fill")
 }

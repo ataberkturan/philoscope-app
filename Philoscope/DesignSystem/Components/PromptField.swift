@@ -68,7 +68,7 @@ extension PromptField {
         Button {
             sendAction()
         } label: {
-            Image.magicIcon
+            Symbol.magic.image
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
